@@ -1,147 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>Poké Wiki - {% block title %}{% endblock %}</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
 
-<head>
-	<meta charset="UTF-8">
-	<title>Poké Wiki - {% block title %}{% endblock %}</title>
-	<link rel="icon"
-		href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css">
-	{% block stylesheets %}
-	{{ encore_entry_link_tags('app') }}
-	{% endblock %}
-
-	{% block javascripts %}
-	{{ encore_entry_script_tags('app') }}
-	{% endblock %}
-</head>
-
-<body>
-	<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
-	<nav class="h-12 bg-yellow flex items-center justify-end">
-		<ul class="flex">
-			<li class="mx-6"><a href="#">Non Connecté(e)</a></li>
-			<li class="mx-6"><a href="#">Créer un compte </a></li>
-			<li class="mx-6"><a href="#">Connexion</a></li>
-		</ul>
-	</nav>
-
-	<div class="flex ">
-		<div class="h-screen bg-yellow ">
-			<ul class="flex pt-5 flex-col">
-				<li class="p-11"><a href="#">Accueil</a></li>
-				<li class="p-11"><a href="#">Les types</a></li>
-				<li class="p-11"><a href="#">Mon Compte</a></li>
-			</ul>
-		</div>
-
-		<div class=" flex flex-auto flex-col">
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+	<body>
+		<div class="container mx-auto">
 			{% block body %}{% endblock %}
-
-			<h1 class="text-center text-[62px] text-blue">Bienvenue sur poke wiki</h1>
-
-			<p class="text-center self-center w-2/4 mt-5">Poke Wiki est un site web fan qui recense les Pokémon des
-				différentes générations. Toute personne souhaitant contribué à la belle histoire de ce site est la
-				bienvenue pour nous aider à recenser les Pokemon.</p>
-
-			<!--  CARD POKEMON -->
-			<div class="flex flex-col w-60 border-2 border-type_eau px-2 py-1">
-				<div class="flex justify-between h-8 content-center mb-8">
-					<div class="justify-end bg-type_eau w-1/3 mr-2 text-center">N° 112</div>
-					<div class="text-center bg-type_eau w-2/3 ">Carapuce</div>
-				</div>
-				<img src="{{ asset('img/carapuce.png') }}" alt="" class="w-3/5 h-2/3 self-center">
-				<button class="bg-type_eau rounded-full w-3/4 h-12 self-center mt-8">Plus d'information</button>
-				<p class="self-end text-xs mt-3"> Auteur: Nicolas</p>
-			</div>
-
-			<!-- CARD POKEMON DETAIL  -->
-			<div class="flex flex-col ">
-
-				<h1 class="text-center text-3xl text-blue mb-11 ">Vous trouverez ici toutes les informations sur le pokemon
-					Carapuce !</h1>
-
-				<div class="flex justify-between ">
-					<div class="flex flex-col w-3/5 mt-12">
-					<h2> A propos de ce pokemon</h2>
-
-					<hr>
-
-					<h3>Information générale :</h3>
-					<p>Carapuce (anglais : Squirtle ; japonais : ゼニガメ Zenigame) est le Pokémon de départ de type Eau offert par le Professeur Chen dans la région de Kanto. </p>
-					<h3>Physionomie et attitudes :</h3>
-					<p>Carapuce est une petite tortue bipède de couleur bleue. Il possède une carapace brune au pourtour blanc, beige au niveau du ventre. Ses yeux sont grands et violacés. Il a une queue enroulée sur elle-même formant une spirale. Il possède quatre pattes avec chacune trois doigts.
-						Sa carapace, molle à la naissance, durcit avec le temps et lui sert à se protéger pour lancer ensuite des jets d'eau ou d'écume, mais aussi à améliorer son hydrodynamisme.
-						</p>
-					<h3>Différences mâle/femelle :</h3>
-					<p>Il n'y a aucune différence entre les individus mâles et femelles de cette espèce.
-					</p>
-					<h3>Évolution :	</h3>
-					<p>Carapuce évolue à partir du niveau 16 en Carabaffe, puis il évolue en Tortank à partir du niveau 36. Celui-ci peut ensuite méga-évoluer en Méga-Tortank. (avec la Tortankite) </p>
-					<h3>Talent : </h3>
-					<p>Torrent : augmente la puissance des capacités de type Eau du Pokémon quand ses PV sont inférieurs à 1/3 .
-						Cuvette (talent caché) : le Pokémon récupère 1/16 de ses PV lorsqu'il pleut.</p>
-					</div>
-
-									
-					<div class="flex flex-col w-2/5 border-2 border-type_eau px-2 py-1 mr-4 mb-4">
-						<div class="flex justify-between h-8 content-center mb-8">
-							<div class="justify-end bg-type_eau w-1/3 mr-2 text-center">N° 112</div>
-							<div class="text-center bg-type_eau w-2/3 ">Carapuce</div>
-						</div>
-						<img src="{{ asset('img/carapuce.png') }}" alt="" class="w-3/5 h-2/3 self-center">
-						<div class="flex flex-col mt-6">
-							<div class="flex justify-between">
-								<p class="text-center w-1/2 bg-type_eau">Type</p>
-								<p class="w-1/2 text-center border-t-2 border-r-2 border-type_eau">Eau</p>
-							</div>
-							<div class="flex justify-between">
-								<p class="text-center w-1/2 bg-type_eau">Catégorie</p>
-								<p class="w-1/2 text-center border-t-2 border-r-2 border-type_eau"> Pokemon minitortue
-								</p>
-							</div>
-							<div class="flex justify-between">
-								<p class="text-center w-1/2 bg-type_eau">Taille</p>
-								<p class="w-1/2 text-center border-t-2 border-r-2 border-type_eau"> 0.5m</p>
-							</div>
-							<div class="flex justify-between">
-								<p class="text-center w-1/2 bg-type_eau">Poids</p>
-								<p class="w-1/2 text-center border-t-2 border-r-2 border-type_eau"> 9.0kg</p>
-							</div>
-							<div class="flex justify-between">
-								<p class="text-center w-1/2 bg-type_eau">Sexe</p>
-								<p class="w-1/2 text-center border-t-2 border-r-2 border-type_eau"> 12.5% F / 87.5% M
-								</p>
-							</div>
-							<div class="flex justify-between">
-								<p class="text-center w-1/2 bg-type_eau">Taux de capture</p>
-								<p class="w-1/2 text-center border-t-2 border-r-2 border-type_eau">45/255</p>
-							</div>
-							<div class="flex justify-between">
-								<p class="text-center w-1/2 bg-type_eau">Couleur</p>
-								<p class="w-1/2 text-center border-t-2 border-r-2 border-b-2 border-type_eau">Bleu</p>
-							</div>
-						</div>
-						<p class="self-end text-xs mt-3"> Auteur: Nicolas</p>
-					</div>
-
-				</div>
-
-
-			</div>
-
 		</div>
-	</div>
-
-
-	<footer class="h100 bg-yellow text-center flex flex-col">
-		<img src="{{ asset('img/pokewiki.png') }}" alt="" class="h-16 w-48 self-center mb-6 mt-5">
-		<p class="mb-2">Site développé par Loïc Colin Nicolas TUAL - Vincent Talgorn - Tous droits réservés 2022 -
-			Mentions légales</p>
-	</footer>
-
-
-
-</body>
-
+	</body>
 </html>
