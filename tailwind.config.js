@@ -8,8 +8,16 @@ module.exports = {
     './templates/**/*.html.twig',
     './node_modules/tw-elements/dist/js/**/*.js'
   ],
-  theme: {
-    extend: {},
+  theme: {   
+    extend: {
+      colors: {
+        'yellow': '#FFCC03',
+        'blue': '#386ABB',
+        'dark': '#000000',
+        'white': '#FFFFFF',
+        'type_eau': '#399CFF'
+      },
+    },
   },
   plugins: [
     require('tw-elements/dist/plugin')

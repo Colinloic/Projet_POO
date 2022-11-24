@@ -9,6 +9,46 @@ body {
 	font-family: 'Raleway', Arial, sans-serif;
 	overflow-x: hidden;
 }
+/* HEADER  */
+
+header nav {
+	@apply h-12 bg-yellow flex items-center justify-end;
+}
+
+header nav ul {
+	@apply flex; 
+}
+
+header nav ul li {
+	@apply px-6;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+	@apply h-screen bg-yellow w-60 fixed;
+}
+
+.sidebar ul {
+	@apply flex m-10 flex-col;
+}
+
+.sidebar ul li {
+	@apply p-5;
+}
+
+/* FOOTER */
+
+footer{
+	@apply bg-yellow text-center flex flex-col;
+}
+footer img {
+	@apply h-16 w-48 self-center mb-6 mt-5;
+}
+footer p {
+	@apply mb-2;
+}
+
 
 /* CONTAINER */
 @media screen and (max-width: 1024px) {
