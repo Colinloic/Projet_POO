@@ -15,7 +15,8 @@ module.exports = {
         'blue': '#386ABB',
         'dark': '#000000',
         'white': '#FFFFFF',
-        'type_eau': '#399CFF'
+        'type_eau': '#399CFF',
+        'primary' : '#436bb5'
       },
     },
   },

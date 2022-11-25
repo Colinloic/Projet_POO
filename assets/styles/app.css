@@ -10,23 +10,30 @@ body {
 	overflow-x: hidden;
 }
 /* HEADER  */
+header{ 
 
+	@apply mb-10;
+}
+header nav img {
+	@apply ml-9;
+}
 header nav {
-	@apply h-12 bg-yellow flex items-center justify-end;
+	@apply h-12 bg-yellow flex items-center justify-between;
 }
 
 header nav ul {
-	@apply flex; 
+	@apply flex ; 
 }
 
 header nav ul li {
-	@apply px-6;
+	@apply px-6 text-primary;
 }
 
 /* SIDEBAR */
 
 .sidebar{
-	@apply h-screen bg-yellow w-60 fixed;
+	@apply flex relative bg-yellow w-60 min-h-fit;
+	border-top-right-radius: 15px;
 }
 
 .sidebar ul {
@@ -34,7 +41,38 @@ header nav ul li {
 }
 
 .sidebar ul li {
-	@apply p-5;
+	@apply text-primary flex font-medium px-4 py-2.5 rounded-2xl mb-2;
+	transition: background-color .27s ease-in-out, box-shadow .27s ease-in-out;
+}
+.sidebar ul li:hover {
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
+	background-color: rgba(255, 255, 255, .3);
+}
+.sidebar ul li svg{
+	right: .5rem; 
+}
+ .sidebar ul li a {
+	display: flex;
+} 
+.liste_categorie{
+	@apply mb-5;
+}
+
+@media screen and (max-width: 1024px) {
+	.sidebar {
+	 display: none;
+	}
+
+}
+
+.container{
+	@apply w-5/6 flex mb-9 h-full; 
+}
+@media screen and (max-width: 1024px) {
+	.container {
+	 @apply m-auto mb-9;
+	}
+
 }
 
 /* FOOTER */
@@ -43,11 +81,13 @@ footer{
 	@apply bg-yellow text-center flex flex-col;
 }
 footer img {
-	@apply h-16 w-48 self-center mb-6 mt-5;
+	@apply h-14 w-48 self-center mb-6 mt-5;
 }
 footer p {
-	@apply mb-2;
+	@apply mb-2 text-primary;
 }
+
+/* Block body */
 
 
 /* CONTAINER */

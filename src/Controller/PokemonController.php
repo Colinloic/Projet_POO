@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,9 +32,14 @@ class PokemonController extends AbstractController
 	 * @Route("/pokemon", name="pokemon_categories")
 	 * @return Response
 	 */
-	public function readAllCategories(): Response
+	public function readAllCategories(ManagerRegistry $doctrine): Response
 	{
-		return $this->render('pokemon/categories.html.twig');
+
+		$categorie = $doctrine->getRepository(Category::class);
+		$categorie = $categorie->getCategorie($doctrine);
+		return $this->render('pokemon/categories.html.twig', [
+			'categorie' => $categorie
+		]);
 	}
 
 	/**
