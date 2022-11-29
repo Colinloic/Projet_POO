@@ -4,4 +4,112 @@
 
 {% block body %}
 
+<h1 class="color-secondary title-size text-center font-light mb-9">Vous trouverez ici tous les types de vos Pokemon
+    préférés !</h1>
+ <!-- {# <div class="flex flex-col w-60 border-2 border-type_eau px-2 py-1">
+    <div class="flex justify-between h-8 content-center mb-8">
+        <div class="justify-end bg-type_eau w-1/3 mr-2 text-center">N° 112</div>
+        <div class="text-center bg-type_eau w-2/3 ">Carapuce</div>
+    </div>
+    <img src="{{ asset('static/pokemons/carapuce.png') }}" alt="" class="w-3/5 h-2/3 self-center">
+    <button class="bg-type_eau rounded-full w-3/4 h-12 self-center mt-8">Plus d'information</button>
+    <p class="self-end text-xs mt-3"> Auteur: Nicolas</p>
+</div> #}  -->
+
+<div class="columns-2 ml-28 gap-32">
+    {% set lettre = "" %}   
+    {% for key, category in categorie['cat'] %} 
+        {% if category.name|slice(0,1) != lettre %}
+            {% set lettre = category.name|slice(0,1) %}
+            <p class="font-bold mb-4"> {{ lettre }}</p>
+            {% endif %}
+        <div class="flex liste_categorie items-center ml-8">
+           <a href="{{ path('pokemon_category', { category: category.name }) }}" class="flex items-center"> <img src="{{ asset('static/categories/' ~category.getLogoUrl()) }}" style="height: 35px; width:35px;"
+                class="mr-4" />
+            <p> Type {{ category.name }} </p></a>
+        </div>
+    {% endfor %}
+</div>
+<!-- {# <div class="flex mb-9">
+
+
+    <div class="flex flex-col w-3/4">
+        <h1 class="text-center text-4xl text-blue my-11 ">Vous trouverez ici toutes les informations sur le
+            pokemon Carapuce !</h1>
+        <h2 class="text-3xl mb-6 ml-5"> A propos de ce pokemon</h2>
+
+        <hr class="mb-6 ml-5">
+
+        <h3 class="text-2xl mb-3 ml-9">Information générale :</h3>
+        <p class="mb-6 mx-9">Carapuce (anglais : Squirtle ; japonais : ゼニガメ Zenigame) est le Pokémon de départ de type
+            Eau offert
+            par le Professeur Chen dans la région de Kanto. </p>
+        <h3 class="text-2xl mb-3 ml-9">Physionomie et attitudes :</h3>
+        <p class="mb-6 mx-9">Carapuce est une petite tortue bipède de couleur bleue. Il possède une carapace brune au
+            pourtour
+            blanc, beige au niveau du ventre. Ses yeux sont grands et violacés. Il a une queue enroulée sur
+            elle-même formant une spirale. Il possède quatre pattes avec chacune trois doigts.
+            Sa carapace, molle à la naissance, durcit avec le temps et lui sert à se protéger pour lancer
+            ensuite des jets d'eau ou d'écume, mais aussi à améliorer son hydrodynamisme.
+        </p>
+        <h3 class="text-2xl mb-3 ml-9">Différences mâle/femelle :</h3>
+        <p class="mb-6 mx-9">Il n'y a aucune différence entre les individus mâles et femelles de cette espèce.
+        </p>
+        <h3 class="text-2xl mb-3 ml-9">Évolution : </h3>
+        <p class="mb-6 mx-9">Carapuce évolue à partir du niveau 16 en Carabaffe, puis il évolue en Tortank à partir du
+            niveau 36.
+            Celui-ci peut ensuite méga-évoluer en Méga-Tortank. (avec la Tortankite) </p>
+        <h3 class="text-2xl mb-3 ml-9">Talent : </h3>
+        <p class="mb-6 mx-9">Torrent : augmente la puissance des capacités de type Eau du Pokémon quand ses PV sont
+            inférieurs à
+            1/3.
+            Cuvette (talent caché) : le Pokémon récupère 1/16 de ses PV lorsqu'il pleut.</p>
+
+
+    </div>
+    <div class="flex  mr-4 w-2/6">
+        <div class="flex flex-col w-full border-2 border-type_eau px-2 py-1 h-fit self-center">
+            <div class="flex justify-between h-8 content-center mb-8">
+                <div class="justify-end bg-type_eau w-1/3 mr-2 text-center">N° 112</div>
+                <div class="text-center bg-type_eau w-2/3 ">Carapuce</div>
+            </div>
+            <img src="{{ asset('static/pokemons/carapuce.png') }}" alt="" class="w-3/5  self-center my-9">
+            <div class="flex flex-col mt-6">
+                <div class="flex justify-between">
+                    <p class="text-center w-1/2 bg-type_eau">Type</p>
+                    <p class="w-1/2 text-center border-t-2 border-r-2 border-type_eau">Eau</p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-center w-1/2 bg-type_eau">Catégorie</p>
+                    <p class="w-1/2 text-center border-t-2 border-r-2 border-type_eau"> Pokemon minitortue
+                    </p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-center w-1/2 bg-type_eau">Taille</p>
+                    <p class="w-1/2 text-center border-t-2 border-r-2 border-type_eau"> 0.5m</p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-center w-1/2 bg-type_eau">Poids</p>
+                    <p class="w-1/2 text-center border-t-2 border-r-2 border-type_eau"> 9.0kg</p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-center w-1/2 bg-type_eau">Sexe</p>
+                    <p class="w-1/2 text-center border-t-2 border-r-2 border-type_eau"> 12.5% F / 87.5% M
+                    </p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-center w-1/2 bg-type_eau">Taux de capture</p>
+                    <p class="w-1/2 text-center border-t-2 border-r-2 border-type_eau">45/255</p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-center w-1/2 bg-type_eau">Couleur</p>
+                    <p class="w-1/2 text-center border-t-2 border-r-2 border-b-2 border-type_eau">Bleu</p>
+                </div>
+            </div>
+            <p class="self-end text-xs mt-3"> Auteur: Nicolas</p>
+        </div>
+    </div>
+
+
+</div> #} -->
 {% endblock %}

@@ -1,8 +1,10 @@
 <header role="banner">
-	<nav class="flex bg-primary shadow-md fixed top-0 left-0 w-full h-14 z-50">
-		<ul class="flex ml-auto mr-4 items-center">
-			<li><a href="{{ path('auth_signup') }}" class="p-4 font-medium color-secondary">Créer un compte</a></li>
-			<li><a href="{{ path('auth_login') }}" class="p-4 font-medium color-secondary">Se connecter</a></li>
+	<nav>
+		<img src="{{ asset('static/pokewiki.png') }}" width="123" height="36"/>
+		<ul>
+			<li><a href="#">Non Connecté(e)</a></li>
+			<li><a href="{{ path('auth_signup') }}">Créer un compte </a></li>
+			<li><a href="{{ path('auth_login') }}">Connexion</a></li>
 		</ul>
 	</nav>
 </header>
