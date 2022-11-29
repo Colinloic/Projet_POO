@@ -93,6 +93,38 @@ class PokemonRepository extends ServiceEntityRepository
 		return $datas;
 	}
 
+/*
+A MODIFIER
+A MODIFIER
+A MODIFIER
+A MODIFIER
+A MODIFIER
+A MODIFIER
+A MODIFIER
+A MODIFIER
+A MODIFIER
+A MODIFIER
+A MODIFIER
+A MODIFIER
+*/
+public function getPokemonCategorie(ManagerRegistry $doctrine): array
+{
+
+	$datas = array();
+	$categories = $doctrine->getRepository(Category::class);
+	$categories = $this->createQueryBuilder('p')
+	->select('p')
+	// ->andWhere('p.category = :category_id')
+	// ->setParameter('category_id', $value->getId())
+	->orderBy('RANDOM()')
+	->getQuery()
+	->getArrayResult();
+	// On retourne le tableau avec les catégories et les articles
+	$datas['cat'] = $categories;
+	return $datas;
+}
+
+
 //    /**
 //     * @return Pokemon[] Returns an array of Pokemon objects
 //     */

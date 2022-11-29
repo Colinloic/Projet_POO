@@ -39,6 +39,7 @@ class CategoryRepository extends ServiceEntityRepository
         }
     }
 
+    // On recupere la liste des categorie 
     public function getCategorie (ManagerRegistry $doctrine): array {
         $datas = array();
 		$categories = $doctrine->getRepository(Category::class);
@@ -51,7 +52,6 @@ class CategoryRepository extends ServiceEntityRepository
 
 		// Stockage des catégories dans un tableau de données
 		$datas['cat'] = $categories;
-
         return $datas;
 
     }
