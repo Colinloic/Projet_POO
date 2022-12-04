@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\User;
+use App\Entity\Pokemon;
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -71,5 +74,17 @@ class AuthController extends AbstractController
 			'last_username' => $lastUsername,
 			'error' => $error
 		]);
+	}	/**
+	 * Connexion
+	 * @Route("/user", name="user")
+	 * @return Response
+	 */
+	public function detail_pokemon_user(ManagerRegistry $doctrine): Response
+	{
+        $liste_pokemon = $doctrine->getRepository(Pokemon::class);
+        $liste_pokemon = $liste_pokemon->getPokemonUser($doctrine, 4);
+		return $this->render('auth/detail_pokemon_user.html.twig', [
+            'listePokemon' => $liste_pokemon
+        ]);
 	}
 }

@@ -1,7 +1,81 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}{{ pokemon['0'].name }}{% endblock %}
 
 {% block body %}
+<div class="flex mb-9">
 
+    <div class="flex flex-col w-3/4">
+        <h1 class="text-center text-4xl text-blue my-11 ">Vous trouverez ici toutes les informations sur le
+            pokemon Carapuce !</h1>
+        <h2 class="text-3xl mb-6 ml-5"> A propos de ce pokemon</h2>
+
+        <hr class="mb-6 ml-5 ">
+
+        <h3 class="text-2xl mb-3 ml-9">Information générale :</h3>
+        <p class="mb-6 mx-9">{{ pokemon['0'].description }}</p>
+
+        <h3 class="text-2xl mb-3 ml-9">Physionomie et attitudes :</h3>
+        <p class="mb-6 mx-9">{{ pokemon['0'].attitude }}</p>
+
+        <h3 class="text-2xl mb-3 ml-9">Différences mâle/femelle :</h3>
+        <p class="mb-6 mx-9">{{ pokemon['0'].differences }}</p>
+
+        <h3 class="text-2xl mb-3 ml-9">Évolution : </h3>
+        <p class="mb-6 mx-9">{{ pokemon['0'].evolution }}</p>
+
+        <h3 class="text-2xl mb-3 ml-9">Talent : </h3>
+        <p class="mb-6 mx-9">{{ pokemon['0'].talent }}</p>
+
+    </div>
+
+    <div class="flex flex-col mr-4 w-2/6">
+        <div class="flex flex-col w-full border-2  {{ 'border-'~pokemon['0'].category.url }} px-2 py-1 h-fit self-center">
+            <div class="flex justify-between h-8 content-center mb-8">
+                <div class="justify-end {{ 'bg-'~pokemon['0'].category.url }} w-1/3 mr-2 text-center"><p> N° {{ pokemon['0'].numpokedex }} </p></div>
+                <div class="text-center {{ 'bg-'~pokemon['0'].category.url }} w-2/3 "><p>{{ pokemon['0'].name }}</p></div>
+            </div>
+            <img src="{{ asset('/static/pokemons/'~pokemon['0'].imageurl) }}" alt="" class="w-3/5  self-center my-9">
+            <div class="flex flex-col mt-6">
+                <div class="flex justify-between">
+                    <p class="text-center w-1/2 {{ 'bg-'~pokemon['0'].category.url }}">Type</p>
+                    <p class="w-1/2 text-center border-t-2 border-r-2 {{ 'border-'~pokemon['0'].category.url }}">{{ pokemon['0'].category.name }}</p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-center w-1/2 {{ 'bg-'~pokemon['0'].category.url }}">Catégorie</p>
+                    <p class="w-1/2 text-center border-t-2 border-r-2 {{ 'border-'~pokemon['0'].category.url }}"> {{ pokemon['0'].category.name }}
+                    </p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-center w-1/2 {{ 'bg-'~pokemon['0'].category.url }}">Taille</p>
+                    <p class="w-1/2 text-center border-t-2 border-r-2 {{ 'border-'~pokemon['0'].category.url }}">{{ pokemon['0'].size }}</p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-center w-1/2 {{ 'bg-'~pokemon['0'].category.url }}">Poids</p>
+                    <p class="w-1/2 text-center border-t-2 border-r-2 {{ 'border-'~pokemon['0'].category.url }}">{{ pokemon['0'].weight }}</p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-center w-1/2 {{ 'bg-'~pokemon['0'].category.url }}">Sexe</p>
+                    <p class="w-1/2 text-center border-t-2 border-r-2 {{ 'border-'~pokemon['0'].category.url }}">{{ pokemon['0'].sex}}
+                    </p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-center w-1/2 {{ 'bg-'~pokemon['0'].category.url }}">Taux de capture</p>
+                    <p class="w-1/2 text-center border-t-2 border-r-2 {{ 'border-'~pokemon['0'].category.url }}">{{ pokemon['0'].catchrate }}</p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-center w-1/2  {{ 'bg-'~pokemon['0'].category.url }}">Couleur</p>
+                    <p class="w-1/2 text-center border-t-2 border-r-2 border-b-2 {{ 'border-'~pokemon['0'].category.url }}">{{ pokemon['0'].color }}</p>
+                </div>
+            </div>
+            <p class="self-end text-xs mt-3"> Auteur: {{ pokemon['0'].author }}</p>
+        </div>
+        {% if app.user %}
+            <a  href="#" class="bg-yellow text-type_eau font-bold rounded-full w-3/4 h-12 p-auto self-center mt-8 text-center">Modifier article</a>
+        {% endif %}
+
+    </div>
+
+
+</div>
 {% endblock %}

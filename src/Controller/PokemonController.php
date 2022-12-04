@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Pokemon;
 use Doctrine\Persistence\ManagerRegistry;
+use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,11 +29,12 @@ class PokemonController extends AbstractController
 		$this->em = $entityManager;
 	}
 
-	/**
-	 * Récupère la liste des catégories
-	 * @Route("/pokemon", name="pokemon_categories")
-	 * @return Response
-	 */
+    /**
+     * Récupère la liste des catégories
+     * @Route("/pokemon", name="pokemon_categories")
+     * @param ManagerRegistry $doctrine
+     * @return Response
+     */
 	public function readAllCategories(ManagerRegistry $doctrine): Response
 	{
 
@@ -69,12 +71,17 @@ class PokemonController extends AbstractController
 
 	/**
 	 * Récupère et affiche un article
-	 * @Route("/pokemon/{category}/{id}", name="pokemon_create")
+	 * @Route("/pokemon/{category}/{id}", name="pokemon_read")
 	 * @return Response
 	 */
-	public function read(): Response
+	public function read(ManagerRegistry $doctrine, int $category, int $id): Response
 	{
-		return $this->render('pokemon/read.html.twig');
+
+		$pokemon = $doctrine->getRepository(Pokemon::class);
+		$pokemon = $pokemon->getPokemon($doctrine, $category, $id);
+		return $this->render('pokemon/read.html.twig', [
+			'pokemon' => $pokemon
+		]);
 	}
 
 	/**
