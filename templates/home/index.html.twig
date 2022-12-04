@@ -23,10 +23,12 @@
 		{# Boucle sur les articles #}
 		{% for pokemon in randomArticle['cat'~category.id] %}
 
+
 			<div class="flex justify-center items-center bg-black bg-opacity-50 rounded-2xl h-full w-full relative p-8 z-30">
 				<div class="absolute h-full w-full">
 					<p class="absolute w-full right-0 font-medium bg-black bg-opacity-50 text-gray-200 px-5 py-2 rounded-t-2xl text-center uppercase">{{ pokemon.name }}</p>
-					<a href="{{ path('auth_login') }}" class="flex absolute right-0 bottom-0 mx-auto font-medium bg-black bg-opacity-50 text-gray-200 text-sm px-5 py-2 rounded-tl-2xl rounded-br-2xl">Plus d'informations</a>
+
+					<a href="{{ path('pokemon_read', { 'category': category.id, 'id': pokemon.id }) }}" class="flex absolute right-0 bottom-0 mx-auto font-medium bg-black bg-opacity-50 text-gray-200 text-sm px-5 py-2 rounded-tl-2xl rounded-br-2xl">Plus d'informations</a>
 				</div>
 				<img src="{{ asset('/static/pokemons/'~pokemon.image_url) }}" alt="" class="object-contain" height="230" width="230">
 			</div>

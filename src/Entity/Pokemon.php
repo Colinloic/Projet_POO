@@ -100,6 +100,11 @@ class Pokemon
 	 */
 	private $user;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $num_pokedex;
+
 	public function getId(): ?int
 	{
 		return $this->id;
@@ -296,4 +301,14 @@ class Pokemon
 
 		return $this;
 	}
+
+    public function getNumPokedex(): ?int
+    {
+        return $this->num_pokedex;
+    }
+
+    public function setNumPokedex(int $num_pokedex): ?int
+    {
+        return $this->num_pokedex;
+    }
 }

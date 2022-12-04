@@ -93,6 +93,59 @@ class PokemonRepository extends ServiceEntityRepository
 		return $datas;
 	}
 
+    /**
+     * Utilisation du QueryBuilder pour récupérer les détails pokemons associés à son id
+     * Permet de random le résultat grâce à la classe Random dans App\Orm\Random
+     * @param ManagerRegistry $doctrine
+     * @param int $categorie
+     * @param int $id_pokemon
+     * @return array
+     */
+	public function getPokemon(ManagerRegistry $doctrine, int $categorie, int $id_pokemon): array
+	{
+		$datas = array();
+
+		$pokemon = $this->createQueryBuilder('pokemon')
+			->select('pokemon')
+			->andWhere('pokemon.category = :category_id', 'pokemon.id = :id')
+			->setParameter('category_id', $categorie )
+			->setParameter('id', $id_pokemon )
+			->getQuery()
+			->getResult();
+
+		// Stockage des catégories dans un tableau de données
+		$datas = $pokemon;
+
+		// On retourne le tableau avec les catégories et les articles
+		return $datas;
+	}
+
+
+    /**
+     * Utilisation du QueryBuilder pour récupérer la listes des pokemons créer par l'utilisateur
+     * Permet de random le résultat grâce à la classe Random dans App\Orm\Random
+     * @param ManagerRegistry $doctrine
+     * @param int $categorie
+     * @param int $id_pokemon
+     * @return array
+     */
+	public function getPokemonUser(ManagerRegistry $doctrine, int $user): array
+	{
+		$pokemon = $this->createQueryBuilder('pokemon')
+			->select('pokemon')
+			->andWhere('pokemon.user = :user')
+			->setParameter('user', $user )
+			->getQuery()
+			->getResult();
+
+		// Stockage des catégories dans un tableau de données
+		$datas = $pokemon;
+
+		// On retourne le tableau avec les catégories et les articles
+		return $datas;
+	}
+	
+
 /*
 A MODIFIER
 A MODIFIER
