@@ -13,21 +13,25 @@
 		{% endblock %}
 	</head>
 	<body>
-		{% include 'includes/header.twig' %}
-		<div class="flex w-full">
-			{% include 'includes/sidebar.twig' %}
-			<div class="container">
-				<div class="flex flex-col w-full pl-12">
-					{% block body %}{% endblock %}
 
-				</div>
-				
-			</div>
-				
-		
+	<div class="grid grid-cols-6">
+		<div class="col-start-1 col-end-13">
+			{% include 'includes/header.twig' %}
 		</div>
+		<div class="col-start-1 col-end-1">
+			{% include 'includes/sidebar.twig' %}
+		</div>
+		<div class="col-start-1 md:col-start-2 col-end-13 mb-9">
+			{% block body %}{% endblock %}
+		</div>
+		<div class="col-start-1 col-end-13 ">
+			{% include 'includes/footer.twig' %}
+		</div>
+	</div>
+
+
 		
-		{% include 'includes/footer.twig' %}
+
 		<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 	</body>
 </html>
