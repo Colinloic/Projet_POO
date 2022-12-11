@@ -74,17 +74,24 @@ class AuthController extends AbstractController
 			'last_username' => $lastUsername,
 			'error' => $error
 		]);
-	}	/**
-	 * Connexion
-	 * @Route("/user", name="user")
-	 * @return Response
-	 */
+	}
+
+    /**
+     * detail des créations des users
+     * @Route("/user", name="user")
+     * @param ManagerRegistry $doctrine
+     * @return Response
+     */
 	public function detail_pokemon_user(ManagerRegistry $doctrine): Response
 	{
-        $liste_pokemon = $doctrine->getRepository(Pokemon::class);
-        $liste_pokemon = $liste_pokemon->getPokemonUser($doctrine, 4);
-		return $this->render('auth/detail_pokemon_user.html.twig', [
-            'listePokemon' => $liste_pokemon
-        ]);
+        $utilisateur = $this->getUser();
+        if($utilisateur){
+            $liste_pokemon = $doctrine->getRepository(Pokemon::class);
+            $liste_pokemon = $liste_pokemon->getPokemonUser($doctrine, 4);
+            return $this->render('auth/detail_pokemon_user.html.twig', [
+                'listePokemon' => $liste_pokemon
+            ]);
+        }
+        return $this->render('auth/detail_pokemon_user.html.twig');
 	}
 }

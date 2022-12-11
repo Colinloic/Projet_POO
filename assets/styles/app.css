@@ -32,7 +32,8 @@ header nav ul li {
 /* SIDEBAR */
 
 .sidebar{
-	@apply flex relative bg-yellow w-60 min-h-fit;
+	@apply flex relative bg-yellow min-h-fit;
+	max-width: 15rem;
 	border-top-right-radius: 15px;
 }
 

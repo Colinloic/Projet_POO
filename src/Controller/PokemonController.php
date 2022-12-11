@@ -4,9 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Entity\Pokemon;
+
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -45,12 +50,12 @@ class PokemonController extends AbstractController
 		]);
 	}
 
-	/**
-	 * Récupère et affiche tous les pokemons d'une catégorie
-	 * @Route("/pokemon/{category}", name="pokemon_category")
-	 * @return Response
-	 */
-
+    /**
+     * Récupère et affiche tous les pokemons d'une catégorie
+     * @Route("/pokemon/{category}", name="pokemon_category")
+     * @param ManagerRegistry $doctrine
+     * @return Response
+     */
 	 /* A modifier */
 	public function readAll(ManagerRegistry $doctrine): Response
 	{
@@ -59,21 +64,37 @@ class PokemonController extends AbstractController
 		return $this->render('pokemon/category.html.twig');
 	}
 
-	/**
-	 * Création d'un article
-	 * @Route("/pokemon/create", name="pokemon_create")
-	 * @return Response
-	 */
-	public function create(): Response
-	{
-		return $this->render('pokemon/create.html.twig');
-	}
+    /**
+     * Création d'un article
+     * @Route("/pokemon/create", name="pokemon_create")
+     * @return Response
+     */
+    public function create(): Response
+    {
+         $pokemon = new Pokemon();
+         $form = $this->createFormBuilder($pokemon)
 
-	/**
-	 * Récupère et affiche un article
-	 * @Route("/pokemon/{category}/{id}", name="pokemon_read")
-	 * @return Response
-	 */
+        ->add('nom', TextType::class)
+        ->add('catégorie', TextType::class)
+        ->add('save', SubmitType::class, ['label'=>'Créer Pokemon'])
+        ->getForm();
+
+        //$form = $this->createForm(Pokemon::class, $pokemon);
+         return $this->renderForm('pokemon/create.html.twig', [
+           'form' => $form
+         ]);
+
+
+    }
+
+    /**
+     * Récupère et affiche un article
+     * @Route("/pokemon/{category}/{id}", name="pokemon_read")
+     * @param ManagerRegistry $doctrine
+     * @param int $category
+     * @param int $id
+     * @return Response
+     */
 	public function read(ManagerRegistry $doctrine, int $category, int $id): Response
 	{
 
@@ -89,9 +110,24 @@ class PokemonController extends AbstractController
 	 * @Route("/pokemon/{category}/{id}/update", name="pokemon_update")
 	 * @return Response
 	 */
-	public function update(): Response
+	public function update(ManagerRegistry $doctrine, int $category, int $id): Response
 	{
-		return $this->render('pokemon/update.html.twig');
+        $pokemon = $doctrine->getRepository(Pokemon::class);
+        $pokemon = $pokemon->getPokemon($doctrine, $category, $id);
+        $form = $this->createFormBuilder($pokemon)
+
+            ->add('name', TextType::class , [
+                'data' => "$pokemon[0].name" ,
+            ])
+            ->add('category', TextType::class)
+            ->add('save', SubmitType::class, ['label'=>'Créer Pokemon'])
+            ->getForm();
+
+        //$form = $this->createForm(Pokemon::class, $pokemon);
+        return $this->renderForm('pokemon/create.html.twig', [
+            'form' => $form
+        ]);
+		//return $this->render('pokemon/create.html.twig');
 	}
 
 	/**

@@ -307,8 +307,9 @@ class Pokemon
         return $this->num_pokedex;
     }
 
-    public function setNumPokedex(int $num_pokedex): ?int
+    public function setNumPokedex(int $num_pokedex): self
     {
-        return $this->num_pokedex;
+        $this->num_pokedex = $num_pokedex;
+        return $this;
     }
 }

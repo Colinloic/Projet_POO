@@ -103,7 +103,6 @@ class PokemonRepository extends ServiceEntityRepository
      */
 	public function getPokemon(ManagerRegistry $doctrine, int $categorie, int $id_pokemon): array
 	{
-		$datas = array();
 
 		$pokemon = $this->createQueryBuilder('pokemon')
 			->select('pokemon')
@@ -131,6 +130,7 @@ class PokemonRepository extends ServiceEntityRepository
      */
 	public function getPokemonUser(ManagerRegistry $doctrine, int $user): array
 	{
+
 		$pokemon = $this->createQueryBuilder('pokemon')
 			->select('pokemon')
 			->andWhere('pokemon.user = :user')
