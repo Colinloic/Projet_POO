@@ -312,4 +312,5 @@ class Pokemon
         $this->num_pokedex = $num_pokedex;
         return $this;
     }
+
 }
