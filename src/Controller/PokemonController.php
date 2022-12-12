@@ -139,21 +139,22 @@ class PokemonController extends AbstractController
 
 	}
     /**
-     * detail des créations des users
+     * Page protégée
+     * Liste des pokemons de l'utilisateur
      * @Route("/user", name="user")
      * @param ManagerRegistry $doctrine
      * @return Response
      */
-    public function detailPokemonUser(ManagerRegistry $doctrine): Response
+    public function pokemonsUser(ManagerRegistry $doctrine): Response
     {
         $utilisateur = $this->getUser();
         if($utilisateur){
             $liste_pokemon = $doctrine->getRepository(Pokemon::class);
             $liste_pokemon = $liste_pokemon->getPokemonUser($doctrine, 4);
-            return $this->render('auth/detail_pokemon_user.html.twig', [
+            return $this->render('user/pokemon.html.twig', [
                 'listePokemon' => $liste_pokemon
             ]);
         }
-        return $this->render('auth/detail_pokemon_user.html.twig');
+        return $this->render('user/pokemon.html.twig');
     }
 }

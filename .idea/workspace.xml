@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc7158ab-fb8e-4c64-86a8-5184151bcd73" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5/storage_v2/_src_/database/projetpoo.BKKxyg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5/storage_v2/_src_/database/projetpoo.BKKxyg/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5/storage_v2/_src_/database/projetpoo.BKKxyg/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5/storage_v2/_src_/database/projetpoo.BKKxyg/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5/storage_v2/_src_/database/projetpoo.BKKxyg/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5/storage_v2/_src_/database/projetpoo.BKKxyg/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5/storage_v2/_src_/database/projetpoo.BKKxyg/schema/public.abK9xQ.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PokemonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PokemonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pokemon/category.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pokemon/category.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PokemonRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PokemonRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/auth/detail_pokemon_user.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/pokemon.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +21,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -196,11 +196,42 @@
     ]
   }
 }</component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/user" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHPUnit.phpunit.xml.dist">
     <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="symfony" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="symfony" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="watch" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="watch" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.symfony" />
+        <item itemvalue="npm.watch" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
