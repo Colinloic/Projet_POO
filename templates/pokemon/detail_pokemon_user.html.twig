@@ -3,26 +3,6 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <div class="border-yellow
-                border-blue
-                border-dark
-                border-white
-                border-primary
-                border-water
-                border-dragon
-                border-electrik
-                border-fight
-                border-bug
-                border-fire
-                border-fly
-                border-ghost
-                border-grass
-                border-ground
-                border-ice
-                border-normal
-                border-poison
-                border-psy
-                border-rock"></div>
     <h1 class="text-center text-4xl text-blue my-11 ">Vos créations !</h1>
     <div class=" flex flex-wrap justify-center">
     {% for key, pokemon in listePokemon %}
@@ -33,17 +13,14 @@
                     <div class="text-center {{ 'bg-'~pokemon.category.url }} w-2/3 ">{{ pokemon.name }}</div>
                 </div>
                 <img src="{{ asset('static/pokemons/'~pokemon.imageurl) }}" alt="" class="w-3/5 h-2/3 self-center">
-                <button class="{{ 'bg-'~pokemon.category.url }} rounded-full w-3/4 h-12 self-center mt-8"><a href="{{ path('pokemon_read', { 'category': pokemon.category.id, 'id': pokemon.id }) }}">Plus d'informations</a> </button>
+                <button class="{{ 'bg-'~pokemon.category.url }} rounded-full w-3/4 h-12 self-center mt-8"><a href="{{ path('pokemon_read', {'name': pokemon.name }) }}">Plus d'informations</a> </button>
                 <div class="flex">
                     <button class="{{ 'bg-'~pokemon.category.url }} rounded-full w-2/4 h-6 self-center mt-8 mx-2">Modifier</button>
-                    <button class="{{ 'bg-'~pokemon.category.url }} rounded-full w-2/4 h-6 self-center mt-8">Supprimer</button>
+                    <button class="{{ 'bg-'~pokemon.category.url }} rounded-full w-2/4 h-6 self-center mt-8"><a href="{{ path('pokemon_delete', {'name': pokemon.name }) }}">Supprimer</a></button>
                 </div>
                 <p class="self-end text-xs mt-3"> Auteur: {{ pokemon.author }}</p>
 
             </div>
-
-
-
     {% endfor %}
     </div>
 {% endblock %}
