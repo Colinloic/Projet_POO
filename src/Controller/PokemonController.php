@@ -45,19 +45,27 @@ class PokemonController extends AbstractController
 		]);
 	}
 
-	/**
-	 * Récupère et affiche tous les pokemons d'une catégorie
-	 * @Route("/pokemon/{category}", name="pokemon_category")
-	 * @return Response
-	 */
+	    /**
+     * Récupère et affiche tous les pokemons d'une catégorie
+     * @Route("/pokemon/{category}", name="pokemon_category")
+     * @param ManagerRegistry $doctrine
+     * @param string $category
+     * @return Response
+     */
 
-	 /* A modifier */
-	public function readAll(ManagerRegistry $doctrine): Response
-	{
-		$categorie = $doctrine->getRepository(Pokemon::class);
-		$categorie = $categorie->getPokemonCategorie($doctrine);
-		return $this->render('pokemon/category.html.twig');
-	}
+     /* A modifier */
+     public function readAll(ManagerRegistry $doctrine, string $category): Response
+     {
+         $pokemon = $doctrine->getRepository(Pokemon::class);
+        //  $categories = $categorie->getPokemonCategorie($doctrine, $category);
+        $pokemons = $pokemon->findBy(['type'=>$category]);
+         return $this->render('pokemon/category.html.twig', [
+             'pokemons' => $pokemons,
+             
+            
+        ]);
+     }
+
 
 	/**
 	 * Création d'un article

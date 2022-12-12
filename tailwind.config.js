@@ -38,4 +38,9 @@ module.exports = {
   plugins: [
     require('tw-elements/dist/plugin')
   ],
+
+  safelist: [{
+    pattern: /(bg)-(water|dragon|electrik|fight|bug|fire|fly|ghost|grass|ground|ice|normal|poison|psy|rock)/
+  }]
+
 }
