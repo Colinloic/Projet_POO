@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc7158ab-fb8e-4c64-86a8-5184151bcd73" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5/storage_v2/_src_/database/projetpoo.BKKxyg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5/storage_v2/_src_/database/projetpoo.BKKxyg/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5/storage_v2/_src_/database/projetpoo.BKKxyg/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5/storage_v2/_src_/database/projetpoo.BKKxyg/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5/storage_v2/_src_/database/projetpoo.BKKxyg/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5/storage_v2/_src_/database/projetpoo.BKKxyg/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6364c8b3-83bd-47fc-bb10-c7a703e13dc5/storage_v2/_src_/database/projetpoo.BKKxyg/schema/public.abK9xQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PokemonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PokemonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pokemon/category.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pokemon/category.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,5 +217,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

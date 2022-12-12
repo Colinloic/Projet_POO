@@ -58,10 +58,14 @@ class PokemonController extends AbstractController
      public function readAll(ManagerRegistry $doctrine, string $category): Response
      {
          $pokemon = $doctrine->getRepository(Pokemon::class);
-         $pokemon = $pokemon->findBy(['type'=>$category]);
-         dump($pokemon);
+         $categorie = $doctrine->getRepository(Category::class);
+         $categories= $categorie->findBy(['name' => $category]);
+         $pokemons = $pokemon->findBy(['type'=>$category]);
+
+
          return $this->render('pokemon/category.html.twig', [
-             'categories' => $pokemon,
+             'pokemons' => $pokemons,
+             'categories' => $categories,
         ]);
      }
 
