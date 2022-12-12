@@ -100,7 +100,7 @@ class PokemonController extends AbstractController
 	{
 
         $PokemonCat = $doctrine->getRepository(Category::class);
-        $pokemonCat = $pokemonCat->
+
 
         $pokemon = $doctrine->getRepository(Pokemon::class);
         $pokemon = $pokemon->findBy(['name'=>'carapuce',
