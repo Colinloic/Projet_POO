@@ -42,7 +42,10 @@ class PokemonController extends AbstractController
 
 		$categorie = $doctrine->getRepository(Category::class);
 		$categorie = $categorie->getCategorie($doctrine);
+        $pokemon = $doctrine->getRepository(Pokemon::class);
+        $pokemons = $pokemon->findBy(['type'=>$category]);
 		return $this->render('pokemon/categories.html.twig', [
+            'pokemons' => $pokemons,
 			'categorie' => $categorie
 		]);
 	}
