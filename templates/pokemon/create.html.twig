@@ -3,6 +3,79 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-   {{ form(form) }}
+
+   {{ form_start(form,{ 'attr': {'class': 'flex flex-col mt-5 p-5 w-3/4 m-auto'}}) }}
+   <div class="flex flex-col mb-3">
+      {{ form_label(form.name, null, { 'label': 'Nom : ', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}
+      {{ form_widget(form.name, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}
+   </div>
+{#   <div class="flex flex-col mb-3">#}
+{#      {{ form_label(form.category, null, { 'label': 'Categorie : ', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}#}
+{#      {{ form_widget(form.category, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none' } }) }}#}
+{#   </div>#}
+   <div class="flex flex-col mb-3">
+      {{ form_label(form.size, null, { 'label': 'Taille : ', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}
+      {{ form_widget(form.size, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}
+   </div>
+   <div class="flex flex-col mb-3">
+      {{ form_label(form.weight, null, { 'label': 'Poids : ', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}
+      {{ form_widget(form.weight, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}
+   </div>
+   <div class="flex flex-col mb-3">
+      {{ form_label(form.sex, null, { 'label': 'Sexe : ', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}
+      {{ form_widget(form.sex, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}
+   </div>
+   <div class="flex flex-col mb-3">
+      {{ form_label(form.catch_rate, null, { 'label': 'Taux de capture : ', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}
+      {{ form_widget(form.catch_rate, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}
+   </div>
+   <div class="flex flex-col mb-3">
+      {{ form_label(form.description, null, { 'label': 'Description : ', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}
+      {{ form_widget(form.description, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}
+   </div>
+   <div class="flex flex-col mb-3">
+      {{ form_label(form.attitude, null, { 'label': 'Attitude : ', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}
+      {{ form_widget(form.attitude, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}
+   </div>
+   <div class="flex flex-col mb-3">
+      {{ form_label(form.differences, null, { 'label': 'différences : ', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}
+      {{ form_widget(form.differences, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}
+   </div>
+   <div class="flex flex-col mb-3">
+      {{ form_label(form.evolution, null, { 'label': 'Evolution : ', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}
+      {{ form_widget(form.evolution, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}
+   </div>
+   <div class="flex flex-col mb-3">
+      {{ form_label(form.talent, null, { 'label': 'Talent :', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}
+      {{ form_widget(form.talent, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}
+   </div>
+   <div class="flex flex-col mb-3">
+      {{ form_label(form.num_pokedex, null, { 'label': 'Numéro pokedex : ', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}
+      {{ form_widget(form.num_pokedex, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}
+   </div>
+
+   {{ form_row(form.save, {
+      label: 'Créer le pokémon',
+       'attr': {'class': ' h-10 bg-primary px-3 color-secondary font-semibold rounded-2xl shadow-md hover:bg-blue hover:text-yellow transition-colors duration-300'}
+   }) }}
 
 {% endblock %}
+
+
+{#<h1 class="color-secondary title-size text-center font-light">Inscrivez-vous</h1>#}
+{#{{ form_start(registrationForm,{ 'attr': {'class': 'flex flex-col mt-5 p-5 w-7/12 mx-auto'}}) }}#}
+{#<div class="flex flex-col mb-3"> #}
+{#   {{ form_label(registrationForm.name, null, { 'label': 'Nom', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}#}
+{#   {{ form_widget(registrationForm.name, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}</div> #}
+{#<div class="flex flex-col mb-3">  #}
+{#   {{ form_label(registrationForm.firstname, null, { 'label': 'Prénom', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}#}
+{#   {{ form_widget(registrationForm.firstname, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}</div> #}
+{#<div class="flex flex-col mb-3">  #}
+{#   {{ form_label(registrationForm.username, null, { 'label': 'Pseudo', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}#}
+{#   {{ form_widget(registrationForm.username, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}</div>#}
+{#<div class="flex flex-col mb-6">  #}
+{#   {{ form_label(registrationForm.plainPassword, null, { 'label': 'Mot de passe', 'label_attr': {'class': 'mb-1 font-medium required'} }) }}#}
+{#   {{ form_widget(registrationForm.plainPassword, { 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}#}
+{#</div> #}
+{#<button type="submit" data-mdb-ripple="true" data-mdb-ripple-color="light" class="bg-primary p-3.5 color-secondary font-semibold rounded-2xl shadow-md hover:bg-blue hover:text-yellow transition-colors duration-300">S'INSCRIRE</button> #}
+{#{{ form_end(registrationForm) }}#}
