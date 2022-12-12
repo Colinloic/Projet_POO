@@ -53,7 +53,6 @@ class PokemonController extends AbstractController
      * @return Response
      */
 
-     /* A modifier */
      public function readAll(ManagerRegistry $doctrine, string $category): Response
      {
          $pokemon = $doctrine->getRepository(Pokemon::class);
