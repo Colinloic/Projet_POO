@@ -8,11 +8,9 @@
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PokemonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PokemonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PokemonRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PokemonRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/pokemon/category.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pokemon/category.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/pokemon/detail_pokemon_user.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pokemon/detail_pokemon_user.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/pokemon.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/pokemon.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
