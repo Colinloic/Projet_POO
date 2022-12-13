@@ -18,9 +18,15 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class PokemonRepository extends ServiceEntityRepository
 {
+    /**
+     * @var ManagerRegistry
+     */
+    protected $em;
+
 	public function __construct(ManagerRegistry $registry)
 	{
 		parent::__construct($registry, Pokemon::class);
+        $this->em = $registry;
 	}
 
 	public function add(Pokemon $entity, bool $flush = false): void
@@ -44,13 +50,12 @@ class PokemonRepository extends ServiceEntityRepository
 	/**
 	 * Utilisation du QueryBuilder pour récupérer les pokemons associés à leur catégorie
 	 * Permet de random le résultat grâce à la classe Random dans App\Orm\Random
-	 * @param ManagerRegistry $doctrine
 	 * @return array
 	 */
-	public function findRandom(ManagerRegistry $doctrine): array
+	public function findRandom(): array
 	{
 		$datas = array();
-		$categories = $doctrine->getRepository(Category::class);
+		$categories = $this->em->getRepository(Category::class);
 
 		// La première méthode ci-dessous fonctionne mais la requête met trop de temps à s'exécuter :
 		// return $this->createQueryBuilder('p')

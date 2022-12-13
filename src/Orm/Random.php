@@ -10,7 +10,8 @@ use Doctrine\ORM\Query\AST\Functions\FunctionNode;
 /**
  * Classe permettant d'ajouter une fonction numérique RANDOM() dans les requêtes doctrine
  * Cette classe est déclarée dans config/packages/doctrine.yaml
- * Méthode trouvée sur https://gist.github.com/Ocramius/919465
+ * Source : https://gist.github.com/Ocramius/919465
+ * Méthode adaptée pour PostgreSQL
  */
 class Random extends FunctionNode
 {

@@ -58,12 +58,14 @@ class PokemonController extends AbstractController
      public function readAll(ManagerRegistry $doctrine, string $category): Response
      {
          $pokemon = $doctrine->getRepository(Pokemon::class);
-		 $categorie = $doctrine->getRepository(Category::class);
+         $categorie = $doctrine->getRepository(Category::class);
          $categories= $categorie->findBy(['name' => $category]);
          $pokemons = $pokemon->findBy(['type'=>$category]);
+
+
          return $this->render('pokemon/category.html.twig', [
              'pokemons' => $pokemons,
-			 'categories' => $categories,
+             'categories' => $categories,
         ]);
      }
 
@@ -101,11 +103,9 @@ class PokemonController extends AbstractController
 	{
 
         $PokemonCat = $doctrine->getRepository(Category::class);
-        $pokemonCat = $pokemonCat->
-
         $pokemon = $doctrine->getRepository(Pokemon::class);
-        $pokemon = $pokemon->findBy(['name'=>'carapuce',
-            'id'=> 5]);
+        $pokemon = $pokemon->getPokemon($doctrine, $category, $id);
+
 		//$pokemon = $pokemon->getPokemon($doctrine, $category, $id);
 		return $this->render('pokemon/read.html.twig', [
 			'pokemon' => $pokemon
@@ -139,21 +139,22 @@ class PokemonController extends AbstractController
 
 	}
     /**
-     * detail des créations des users
+     * Page protégée
+     * Liste des pokemons de l'utilisateur
      * @Route("/user", name="user")
      * @param ManagerRegistry $doctrine
      * @return Response
      */
-    public function detailPokemonUser(ManagerRegistry $doctrine): Response
+    public function pokemonsUser(ManagerRegistry $doctrine): Response
     {
         $utilisateur = $this->getUser();
         if($utilisateur){
             $liste_pokemon = $doctrine->getRepository(Pokemon::class);
             $liste_pokemon = $liste_pokemon->getPokemonUser($doctrine, 4);
-            return $this->render('auth/detail_pokemon_user.html.twig', [
+            return $this->render('user/pokemon.html.twig', [
                 'listePokemon' => $liste_pokemon
             ]);
         }
-        return $this->render('auth/detail_pokemon_user.html.twig');
+        return $this->render('user/pokemon.html.twig');
     }
 }
