@@ -31,7 +31,7 @@ class PokemonController extends AbstractController
 		$this->em = $entityManager;
 	}
 
-    /**
+    /**.
      * Récupère la liste des catégories
      * @Route("/categorie", name="pokemon_categories")
      * @param ManagerRegistry $doctrine
