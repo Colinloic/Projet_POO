@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc7158ab-fb8e-4c64-86a8-5184151bcd73" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PokemonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PokemonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PokemonRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PokemonRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/auth/detail_pokemon_user.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/pokemon.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="bc7158ab-fb8e-4c64-86a8-5184151bcd73" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
