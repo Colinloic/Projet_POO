@@ -31,7 +31,7 @@ class PokemonController extends AbstractController
 		$this->em = $entityManager;
 	}
 
-    /**.
+    /**
      * Récupère la liste des catégories
      * @Route("/categorie", name="pokemon_categories")
      * @param ManagerRegistry $doctrine
@@ -39,10 +39,8 @@ class PokemonController extends AbstractController
      */
 	public function readAllCategories(ManagerRegistry $doctrine): Response
 	{
-
 		$categorie = $doctrine->getRepository(Category::class);
 		$categorie = $categorie->getCategorie($doctrine);
-
 		return $this->render('pokemon/categories.html.twig', [
 			'categorie' => $categorie
 		]);
@@ -50,7 +48,7 @@ class PokemonController extends AbstractController
 
 	    /**
      * Récupère et affiche tous les pokemons d'une catégorie
-     * @Route("/{category}", name="pokemon_category")
+     * @Route("/categorie/{category}", name="pokemon_category")
      * @param ManagerRegistry $doctrine
      * @param string $category
      * @return Response
