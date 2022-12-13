@@ -108,7 +108,7 @@ class PokemonRepository extends ServiceEntityRepository
      */
 	public function getPokemon(ManagerRegistry $doctrine, int $categorie, int $id_pokemon): array
 	{
-
+// SELECT * pokemon JOIN category WHERE pokemon.categorie_id = category.id AND pokemon.name
 		$pokemon = $this->createQueryBuilder('pokemon')
 			->select('pokemon')
 			->andWhere('pokemon.category = :category_id', 'pokemon.id = :id')

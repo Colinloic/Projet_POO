@@ -31,9 +31,9 @@ class PokemonController extends AbstractController
 		$this->em = $entityManager;
 	}
 
-    /**
+    /**.
      * Récupère la liste des catégories
-     * @Route("/pokemon", name="pokemon_categories")
+     * @Route("/categorie", name="pokemon_categories")
      * @param ManagerRegistry $doctrine
      * @return Response
      */
@@ -42,6 +42,7 @@ class PokemonController extends AbstractController
 
 		$categorie = $doctrine->getRepository(Category::class);
 		$categorie = $categorie->getCategorie($doctrine);
+
 		return $this->render('pokemon/categories.html.twig', [
 			'categorie' => $categorie
 		]);
@@ -49,7 +50,7 @@ class PokemonController extends AbstractController
 
 	    /**
      * Récupère et affiche tous les pokemons d'une catégorie
-     * @Route("/pokemon/{category}", name="pokemon_category")
+     * @Route("/{category}", name="pokemon_category")
      * @param ManagerRegistry $doctrine
      * @param string $category
      * @return Response
@@ -61,18 +62,20 @@ class PokemonController extends AbstractController
          $categorie = $doctrine->getRepository(Category::class);
          $categories= $categorie->findBy(['name' => $category]);
          $pokemons = $pokemon->findBy(['type'=>$category]);
-
-
+         $categorie = $doctrine->getRepository(Category::class);
+         $categories= $categorie->findBy(['name' => $category]);
          return $this->render('pokemon/category.html.twig', [
              'pokemons' => $pokemons,
              'categories' => $categories,
+             
+            
         ]);
      }
 
 
     /**
      * Création d'un article
-     * @Route("user/pokemon/create", name="pokemon_create")
+     * @Route("pokemon/create", name="pokemon_create")
      * @return Response
      */
     public function create(ManagerRegistry $doctrine, Request $request): Response
@@ -93,20 +96,16 @@ class PokemonController extends AbstractController
 
     /**
      * Récupère et affiche un article
-     * @Route("/pokemon/{category}/{id}", name="pokemon_read")
+     * @Route("/pokemon/{name}", name="pokemon_read")
      * @param ManagerRegistry $doctrine
-     * @param int $category
-     * @param int $id
+     * @param string $name
      * @return Response
      */
-	public function read(ManagerRegistry $doctrine, int $category, int $id): Response
+	public function read(ManagerRegistry $doctrine, string $name): Response
 	{
-
-        $PokemonCat = $doctrine->getRepository(Category::class);
         $pokemon = $doctrine->getRepository(Pokemon::class);
-        $pokemon = $pokemon->getPokemon($doctrine, $category, $id);
+        $pokemon = $pokemon->findBy(['name'=>$name]);
 
-		//$pokemon = $pokemon->getPokemon($doctrine, $category, $id);
 		return $this->render('pokemon/read.html.twig', [
 			'pokemon' => $pokemon
 		]);
@@ -114,14 +113,15 @@ class PokemonController extends AbstractController
 
 	/**
 	 * Met à jour l'article
-	 * @Route("user/pokemon/{category}/{id}/update", name="pokemon_update")
+	 * @Route("/pokemon/{name}/update", name="pokemon_update")
 	 * @return Response
 	 */
-	public function update(ManagerRegistry $doctrine, int $category, int $id, Request $request): Response
+	public function update(ManagerRegistry $doctrine, string $name, Request $request): Response
 	{
         $pokemon = new Pokemon();
         $pokemonUpdate = $doctrine->getRepository(Pokemon::class);
-        $pokemonUpdate = $pokemonUpdate->getPokemon($doctrine, $category, $id);
+        $pokemonUpdate = $pokemonUpdate->findBy(['name'=>$name]);
+
         $form = $this->createForm(PokemonFormType::class, $pokemon);
         $form->handleRequest($request);
         return $this->renderForm('pokemon/create.html.twig', [
@@ -132,16 +132,21 @@ class PokemonController extends AbstractController
 
 	/**
 	 * Supprime un pokemon
-	 * @Route("user/pokemon/{category}/{id}", name="pokemon_delete")
+	 * @Route("/pokemon/{name}/delete", name="pokemon_delete")
 	 */
-	public function delete()
+	public function delete(ManagerRegistry $doctrine, string $name, Request $request)
 	{
+        $entityManager = $doctrine->getManager();
+        $pokemon = $entityManager->getRepository(Pokemon::class)->findBy(['name'=>$name]);
+
+        dump($pokemon);
+        $entityManager->remove($pokemon[0]);
+        $entityManager->flush();
 
 	}
     /**
-     * Page protégée
-     * Liste des pokemons de l'utilisateur
-     * @Route("/user", name="user")
+     * detail des créations des users
+     * @Route("/user/pokemon", name="user")
      * @param ManagerRegistry $doctrine
      * @return Response
      */
@@ -151,10 +156,10 @@ class PokemonController extends AbstractController
         if($utilisateur){
             $liste_pokemon = $doctrine->getRepository(Pokemon::class);
             $liste_pokemon = $liste_pokemon->getPokemonUser($doctrine, 4);
-            return $this->render('user/pokemon.html.twig', [
+            return $this->render('pokemon/detail_pokemon_user.html.twig', [
                 'listePokemon' => $liste_pokemon
             ]);
         }
-        return $this->render('user/pokemon.html.twig');
+        return $this->render('pokemon/detail_pokemon_user.html.twig');
     }
 }
