@@ -15,8 +15,8 @@
                 <img src="{{ asset('static/pokemons/'~pokemon.imageurl) }}" alt="" class="w-3/5 h-2/3 self-center">
                 <button class="{{ 'bg-'~pokemon.category.url }} rounded-full w-3/4 h-12 self-center mt-8"><a href="{{ path('pokemon_read', {'name': pokemon.name }) }}">Plus d'informations</a> </button>
                 <div class="flex">
-                    <button class="{{ 'bg-'~pokemon.category.url }} rounded-full w-2/4 h-6 self-center mt-8 mx-2">Modifier</button>
-                    <button class="{{ 'bg-'~pokemon.category.url }} rounded-full w-2/4 h-6 self-center mt-8"><a href="{{ path('pokemon_delete', {'name': pokemon.name }) }}">Supprimer</a></button>
+                    <button class="{{ 'bg-'~pokemon.category.url }} rounded-full w-2/4 h-6 self-center mt-8 mx-2"><a href="{{ path('pokemon_update', {'name': pokemon.name }) }}">Modifier</a></button>
+                    <button class="{{ 'bg-'~pokemon.category.url }} rounded-full w-2/4 h-6 self-center mt-8"><a href="{{ path('pokemon_delete', {'id': pokemon.id }) }}">Supprimer</a></button>
                 </div>
                 <p class="self-end text-xs mt-3"> Auteur: {{ pokemon.author }}</p>
 

@@ -7,6 +7,7 @@ use App\Entity\Pokemon;
 use phpDocumentor\Reflection\DocBlock\Description;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -21,15 +22,17 @@ class PokemonFormType extends AbstractType
     {
         $builder
             ->add('name',TextType::class)
-//            ->add('category', EntityType::class, array(
-//                'class' => Category::class,
-//                'choice_label' => 'name',
-//                'expanded' => true,
-//                'multiple' => false,
-//            ))
+            ->add('category', EntityType::class, array(
+                'class' => Category::class,
+                'choice_label' => 'name',
+                'expanded' => true,
+                'multiple' => false,
+            ))
             ->add('size',TextType::class)
+            ->add('type',TextType::class)
             ->add('weight', TextType::class)
             ->add('sex', TextType::class)
+            ->add('color', TextType::class)
             ->add('catch_rate', TextType::class)
             ->add('description', TextareaType::class)
             ->add('attitude', TextareaType::class)
@@ -37,6 +40,7 @@ class PokemonFormType extends AbstractType
             ->add('evolution', TextareaType::class)
             ->add('talent', TextareaType::class)
             ->add('num_pokedex', IntegerType::class)
+            ->add('image_url', FileType::class)
             ->add('save', SubmitType::class);
     }
 

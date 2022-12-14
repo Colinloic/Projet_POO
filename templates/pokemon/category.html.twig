@@ -5,13 +5,12 @@
 {% block body %}
 
 <h1 class="color-secondary title-size text-center font-light mb-9">Vous trouverez ici tous les pokemons de types {{ categories[0].name }} !</h1>
-
-<div class="flex items-center mt-14 mb-5 color-secondary text-3xl">
+<div class="flex items-center mt-14 mb-1 color-secondary text-3xl">
     <span>Type {{ categories[0].name }}</span>
     <img src="{{ asset('/static/categories/'~categories[0].logoUrl) }}" alt="" class="ml-3" width="45" height="45">
-
 </div>
-<div class=" flex flex-wrap justify-center">
+    <button class="{{ 'bg-'~categories[0].url }} rounded-full h-7 self-center mt-8 mb-10 px-6"><a href="{{ path('delete_category', {'id': categories[0].id }) }}">Supprimer la catégorie</a> </button>
+    <div class=" flex flex-wrap justify-center">
     {% for key, pokemon in pokemons %}
     <div class="flex flex-col w-60 border-2 {{ 'border-'~pokemon.category.url }} px-2 py-1 ml-9 mb-9">
         <div class="flex justify-between h-8 content-center mb-8">
@@ -19,7 +18,7 @@
             <div class="text-center {{ 'bg-'~pokemon.category.url }} w-2/3 ">{{ pokemon.name }}</div>
         </div>
         <img src="{{ asset('static/pokemons/'~pokemon.imageurl) }}" alt="" class="w-3/5 h-2/3 self-center">
-        <button class="{{ 'bg-'~pokemon.category.url }} rounded-full w-3/4 h-12 self-center mt-8"><a href="{{ path('pokemon_read', {'name': pokemon.name }) }}">Plus d'informations</a> </button>
+        <button class="{{ 'bg-'~pokemon.category.url }} rounded-full w-3/4 h-12 self-center mt-8"><a href="{{ path('pokemon_update', {'name': pokemon.name }) }}">Plus d'informations</a> </button>
 
         <p class="self-end text-xs mt-3"> Auteur: {{ pokemon.author }}</p>
 
