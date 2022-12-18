@@ -34,9 +34,6 @@ class AuthController extends AbstractController
 		$form = $this->createForm(RegistrationFormType::class, $user);
 		$form->handleRequest($request);
 
-		$username = $form->get('username')->getData();
-		$user->setUsername(strtolower($username));
-
 		if ($form->isSubmitted() && $form->isValid()) {
 			// Encodage du password
 			$user->setPassword(

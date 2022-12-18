@@ -75,7 +75,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
 	public function setUsername(?string $username): self
       	{
-      		$this->username = $username;
+      		$this->username = strtolower($username);
       
       		return $this;
       	}
