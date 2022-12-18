@@ -23,3 +23,4 @@ Pour uploader des images, le dossier "pokemons_a_uploader" est à la racine du p
 - Authentification
 - Création, modification, suppression de pokemons
 - Upload de photo
+- Rendu responsive mobile, tablette, desktop
