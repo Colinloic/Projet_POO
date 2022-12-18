@@ -64,10 +64,7 @@
 							<span class="w-1/2">Taux de capture : </span>
 							<span class="font-medium w-1/2 overflow-hidden text-ellipsis">{{ pokemon.catchRate }}</span>
 						</p>
-						<p class="flex">
-							<span class="w-1/2">Couleur : </span>
-							<span class="font-medium w-1/2 overflow-hidden text-ellipsis">{{ pokemon.color }}</span>
-						</p>
+						<span class="absolute bottom-8 left-1/2 -ml-16 bg-white bg-opacity-50 rounded-full px-3 font-medium">En savoir plus</span>
 					</div>
 				</div>
 			</div>
@@ -130,6 +127,10 @@
 						</span>
 					</p>
 					<p class="flex">
+						<span class="w-40p">Pokedex : </span>
+						<span class="font-medium w-60p">{{ pokemon.numPokedex }}</span>
+					</p>
+					<p class="flex">
 						<span class="w-40p">Taille : </span>
 						<span class="font-medium w-60p">{{ pokemon.size }} cm</span>
 					</p>
@@ -144,6 +145,10 @@
 					<p class="flex">
 						<span class="w-40p">Couleur : </span>
 						<span class="font-medium w-60p">{{ pokemon.color }}</span>
+					</p>
+					<p class="flex">
+						<span class="w-40p">Sexe : </span>
+						<span class="font-medium w-60p">{{ pokemon.sex }}</span>
 					</p>
 					<img src="{{ asset('static/uploads/pokemons/'~ pokemon.imageUrl) }}" class="mx-auto mt-5" alt="pokemon" height="250" width="250">
 				</div>
