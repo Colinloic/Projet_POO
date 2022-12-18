@@ -70,6 +70,9 @@ section {
 	min-height: 200px;
 	min-width: 200px;
 }
+.max-w-25 {
+	max-width: 25rem;
+}
 
 /* BACK BUTTON */
 .back-svg {

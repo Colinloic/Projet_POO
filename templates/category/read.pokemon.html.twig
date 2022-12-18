@@ -22,7 +22,7 @@
 							<img src="{{ asset('static/uploads/pokemons/'~pokemon.imageurl) }}" height="200" width="200" class="object-contain" alt="pokemon">
 						{% endif %}
 					</div>
-					<div class="absolute bottom-0 w-full py-2 bg-black bg-opacity-50 text-center rounded-b-2xl">
+					<div class="absolute bottom-0 w-full py-2 px-2 bg-black bg-opacity-50 text-center rounded-b-2xl text-white text-ellipsis overflow-hidden">
 						<span class="text-white font-medium">{{ pokemon.name|capitalize }}</span>
 					</div>
 					<div class="absolute top-4 right-4">
