@@ -31,6 +31,8 @@
 		{{ form_widget(registrationForm.username, { required: false, 'attr': {'class': 'text-lg py-2 px-3.5 rounded-2xl shadow-md outline-none'} }) }}
 		{% if err['children[username].data'] is defined %}
 			<span class="text-red-600 font-semibold my-2">{{ err['children[username].data'] }}</span>
+		{% elseif err['data.username'] is defined %}
+			<span class="text-red-600 font-semibold my-2">{{ err['data.username'] }}</span>
 		{% endif %}
 	</div>
 	<div class="flex flex-col mb-6">
