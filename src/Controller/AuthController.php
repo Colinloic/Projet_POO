@@ -43,8 +43,12 @@ class AuthController extends AbstractController
 				)
 			);
 
+			$username = $form->get('username')->getData();
+
 			// Ajout du rôle USER par défaut
 			$user->setRoles(array('ROLE_USER'));
+
+			$user->setUsername(strtolower($username));
 
 			$entityManager->persist($user);
 			$entityManager->flush();
