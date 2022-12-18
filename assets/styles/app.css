@@ -58,6 +58,18 @@ section {
 .w-60p {
 	width: 60%;
 }
+.min-size50 {
+	min-height: 50px;
+	min-width: 50px;
+}
+.min-size100 {
+	min-height: 100px;
+	min-width: 100px;
+}
+.min-size200 {
+	min-height: 200px;
+	min-width: 200px;
+}
 
 /* BACK BUTTON */
 .back-svg {

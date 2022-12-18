@@ -17,8 +17,8 @@
 					<p>Type <strong>{{ category.name }}</strong></p>
 				</div>
 				<div class="flex items-center mt-5">
-					<div class="flex items-center mr-auto">
-						{% if category.pokemon[0].imageurl is defined %}
+					<div class="flex items-center mr-auto min-size50">
+						{% if category.pokemon[0].imageurl is defined and file_exist(category.pokemon[0].imageurl) %}
 						<img src="{{ asset('static/uploads/pokemons/'~category.pokemon[0].imageurl) }}" width="50" height="50" alt="pokemon" class="min-h-[50px] max-h-[50px] object-contain">
 						{% endif %}
 					</div>

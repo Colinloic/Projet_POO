@@ -17,8 +17,10 @@
 					<div class="absolute -top-4 -left-4 border-4 border-white rounded-full">
 						<img src="{{ asset('static/uploads/categories/' ~pokemon.category.getLogoUrl()) }}" alt="logo" width="35" height="35">
 					</div>
-					<div class="flex">
-						<img src="{{ asset('static/uploads/pokemons/'~pokemon.imageurl) }}" height="200" width="200" class="object-contain" alt="pokemon">
+					<div class="flex min-size200">
+						{% if file_exist(pokemon.imageurl) %}
+							<img src="{{ asset('static/uploads/pokemons/'~pokemon.imageurl) }}" height="200" width="200" class="object-contain" alt="pokemon">
+						{% endif %}
 					</div>
 					<div class="absolute bottom-0 w-full py-2 bg-black bg-opacity-50 text-center rounded-b-2xl">
 						<span class="text-white font-medium">{{ pokemon.name|capitalize }}</span>
