@@ -28,7 +28,7 @@ class RegistrationFormType extends AbstractType
 			->add('firstname', TextType::class, [
 				'constraints' => [
 					new NotBlank([
-						'message' => 'Quel est votre prénom',
+						'message' => 'Quel est votre prénom ?',
 					])
 				]
 			])
