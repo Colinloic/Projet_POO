@@ -69,7 +69,7 @@ class PokemonController extends AbstractController
 				$projectDir = $this->getParameter('kernel.project_dir');
 				$Filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
 				$safeFilename = $slugger->slug($Filename);
-				$newFilename = $safeFilename.'.'.$file->guessExtension();
+				$newFilename = uniqid($safeFilename).'.'.$file->guessExtension();
 				$file->move($projectDir.'/public/static/uploads/pokemons', $newFilename);
 				$pokemon->setImageUrl($newFilename);
 			}
@@ -166,7 +166,7 @@ class PokemonController extends AbstractController
 			// Upload nouvelle image
 			$Filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
 			$safeFilename = $slugger->slug($Filename);
-			$newFilename = $safeFilename.'.'.$file->guessExtension();
+			$newFilename = uniqid($safeFilename).'.'.$file->guessExtension();
 			$file->move($projectDir.'/public/static/uploads/pokemons', $newFilename);
 			$pokemons->setImageUrl($newFilename);
 		} else {
